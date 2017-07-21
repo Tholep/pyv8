@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER kerker <yes-reply@linux.com>
 
 RUN apt-get update \
-    && apt-get -y install wget python2.7 zip ipython libboost-all-dev apache
+    && apt-get -y install wget python2.7 zip ipython libboost-all-dev apache2
 
 RUN wget https://github.com/emmetio/pyv8-binaries/raw/master/pyv8-linux64.zip \
   && unzip pyv8-linux64 \
