@@ -2,11 +2,7 @@ FROM debian:jessie
 MAINTAINER kerker <yes-reply@linux.com>
 
 RUN apt-get update \
-    && apt-get -y install wget python2.7 zip ipython libboost-all-dev apache2 \
-    && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
-    && sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
-# RUN apt-get update \
-#     && apt-get install -y apache2
+    && apt-get -y install wget python2.7 zip ipython libboost-all-dev
 
 RUN wget https://github.com/emmetio/pyv8-binaries/raw/master/pyv8-linux64.zip \
   && unzip pyv8-linux64 \
@@ -16,4 +12,3 @@ RUN apt-get clean \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 80
-CMD ["apache2ctl", "-D", "FOREGROUND"]
